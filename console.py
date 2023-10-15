@@ -9,6 +9,12 @@ This module contains the entry point of the command interpreter
 import cmd
 import json
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -148,17 +154,27 @@ class HBNBCommand(cmd.Cmd):
         """
         args = arg.split()
         if len(args) < 3:
-            print("FIX THIS")
+            print("** Not enough arguments **")
             return
+
         class_name = args[0]
         if class_name not in ["BaseModel", "Mymodel"]:
             print("** class doesn't exist **")
             return
+        if class_name == "":
+            print("** class name doesn't exist **")
+            return
+
         obj_id = args[1]
         if obj_id == "":
             print("** instance id missing **")
             return
-        attr_Value = ""
+
+        attr_name = args[2]
+        if attr_name == "":
+            print("** attribute name missing **")
+            return
+        attr_value == ""
         if len(args) > 3:
             attr_value = args[3].strip('\'"')
 

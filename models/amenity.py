@@ -11,7 +11,7 @@ class Amenity(BaseModel):
     """
     This class inherits from BaseModel
     """
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """
         This method initializes the parameter
         """

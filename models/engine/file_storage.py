@@ -47,24 +47,29 @@ class FileStorage:
                     return
 
                 data = json.load(file)
-                for key, value in data.items():
+
+                from models.base_model import BaseModel
+                from models.user import User
+                from models.state import State
+                from models.city import City
+                from models.amenity import Amenity
+                from models.place import Place
+                from models.review import Review
+
+                class_mapping = {
+                        "BaseModel": BaseModel,
+                        "User": User,
+                        "State": State,
+                        "City": City,
+                        "Amenity": Amenity,
+                        "Place": Place,
+                        "Review": Review
+                }
+
+                for key, obj_data in data.items():
                     class_name, obj_id = key.split(".")
-                    if class_name == "User":
-                        module_name = "models.user"
-                    elif class_name == "State":
-                        module_name = "models.state"
-                    elif class_name == "City":
-                        module_name = "models.city"
-                    elif class_name == "Place":
-                        module_name = "models.place"
-                    elif class_name == "Amenity":
-                        module_name = "models.amenity"
-                    elif class_name == "Review":
-                        module_name = "models.review"
-                    else:
-                        module_name = "models.base_model"
-                    module = __import__(module_name, fromlist=[class_name])
-                    cls = getattr(module, class_name)
-                    self.__objects[key] = cls(**value)
+                    obj_class = class_mapping[class_name]
+                    obj = obj_class(**obj_data)
+                    self.__objects[key] = obj
         except FileNotFoundError:
             pass
