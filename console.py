@@ -105,23 +105,25 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
+        class_name = args[0]
+        if class_name not in self.class_map:
+            print("** class doesn't exist **")
+            return
         try:
-            class_name = args[0]
             instance_id = args[1]
-            with open("file.json", "r") as file:
-                data = json.load(file)
-                key = class_name + "." + instance_id
-                if key in data:
-                    del data[key]
-                    with open("file.json", "w") as file:
-                        json.dump(data, file)
+        except IndexError:
+            print("** instance id missing **")
+            return
+
+        with open("file.json", "r") as file:
+            data = json.load(file)
+            key = class_name + "." + instance_id
+            if key in data:
+                del data[key]
+                with open("file.json", "w") as file:
+                    json.dump(data, file)
                 else:
                     print("** no instance found **")
-        except IndexError:
-            if len(args) < 2:
-                print("** instance id missing **")
-            else:
-                print("** class doesn't exist **")
 
     def do_all(self, arg):
         """
@@ -158,7 +160,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         class_name = args[0]
-        if class_name not in ["BaseModel", "Mymodel"]:
+        if class_name not in self.class_map:
             print("** class doesn't exist **")
             return
         if class_name == "":
@@ -174,9 +176,13 @@ class HBNBCommand(cmd.Cmd):
         if attr_name == "":
             print("** attribute name missing **")
             return
+
         attr_value == ""
         if len(args) > 3:
             attr_value = args[3].strip('\'"')
+            if not attr_value:
+                print("** value missing **")
+                return
 
 
 if __name__ == "__main__":
