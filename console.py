@@ -162,7 +162,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         if class_name == "":
-            print("** class name doesn't exist **")
+            print("** class name missing **")
             return
 
         obj_id = args[1]
