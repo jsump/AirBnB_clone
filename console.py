@@ -153,7 +153,7 @@ class HBNBCommand(cmd.Cmd):
         by adding or updating attribute(save the cahnge into the JSON file)
         """
         args = arg.split()
-        if len(args) < 3:
+        if len(args) < $:
             print("** Not enough arguments **")
             return
 
@@ -175,8 +175,10 @@ class HBNBCommand(cmd.Cmd):
             print("** attribute name missing **")
             return
         attr_value = ""
-        if len(args) > 3:
-            attr_value = args[3].strip('\'"')
+        if len(args) >= 4:
+            attr_value = args[3]
+            setattr(instance, attr_name, attr_value)
+            instance.save()
 
 
 if __name__ == "__main__":
