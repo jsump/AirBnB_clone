@@ -158,7 +158,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         class_name = args[0]
-        if class_name not in ["BaseModel", "Mymodel"]:
+        if class_name not in self.class_map:
             print("** class doesn't exist **")
             return
         if class_name == "":
