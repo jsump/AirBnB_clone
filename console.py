@@ -174,7 +174,7 @@ class HBNBCommand(cmd.Cmd):
         if attr_name == "":
             print("** attribute name missing **")
             return
-        attr_value == ""
+        attr_value = ""
         if len(args) > 3:
             attr_value = args[3].strip('\'"')
 
