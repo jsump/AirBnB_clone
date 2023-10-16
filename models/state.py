@@ -14,6 +14,7 @@ class State(BaseModel):
     This class inherits from BaseModel
     """
     name = ""
+
     def __init__(self, *args, **kwargs):
         """
         This method initializes the parameter

@@ -11,12 +11,10 @@ class Amenity(BaseModel):
     """
     This class inherits from BaseModel
     """
+    name = ""
+
     def __init__(self, *args, **kwargs):
         """
         This method initializes the parameter
         """
-        super().__init__()
-        self.name = ""
-
-    def __str__(self):
-        return f"Amenity: {self.name}"
+        super().__init__(*args, **kwargs)
