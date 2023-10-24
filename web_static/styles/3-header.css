@@ -10,4 +10,5 @@ header {
 	background-position: left;
 	margin-left: 20px;
 	height: 100%;
+	display: block;
 }
