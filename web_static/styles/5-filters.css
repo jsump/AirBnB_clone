@@ -1,42 +1,57 @@
 .filters {
+	background-color: white;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 70px;
-	width: 100%;
-	border: 1px solid #DDDDDD;
-	border-radius: 4px;
-}
-
-.locations, .amenities {
-	height: 100%;
-	width: 25%;
-	border-right: 1px solid #DDDDDD;
-	padding: 10px;
+	justify-content: flex-start;
 }
 
 .locations h3, .amenities h3 {
 	font-weight: 600;
+	margin-top: 10px;
 }
 
 .locations h4, .amenities h4 {
-	font-weight: 400;
+	font-weight: 200;
 	font-size: 14px;
+	margin-top: -10px;
 }
 
-.search-button {
-	background-color: #FF5A5F;
+.locations {
+	height: 100%;
+	width: 25%;
+	border-right: 1px solid #DDDDDD;
+	text-align: left;
+	margin-left: 40px;
+	margin-top: px;
+
+}
+.amenities {
+	height: 100%;
+	width: 25%;
+	text-align: left;
+	margin-left: 40px;
+}
+
+button {
+	font-size: 18px;
+	background: #FF5A5F;
 	color: #FFFFFF;
 	height: 48px;
 	width: 20%;
-	border: none;
+	border-style: none;
 	border-radius: 4px;
-	cursor: pointer;
 	margin-right: 30px;
-	opacity: 1;
-	transition: opacity 0.3s;
+	margin-top: 10px;
+	float: right;
+	margin-left: auto;
+	order: 2;
+    opacity: 1;
+    transition: opacity 0.3s;
 }
 
-.search-button:hover {
+button:hover {
 	opacity: 0.9;
 }
